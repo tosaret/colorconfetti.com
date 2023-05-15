@@ -216,6 +216,9 @@ header.home .search button {
 .main-nav a:hover {
   color: #fb9e43;
 }
+.home-page .main-nav {
+  display: none;
+}
 
 main {
   padding: 60px 0;
@@ -689,6 +692,9 @@ footer {
   margin: 0 0 0 32px;
 }
 
+.tools.tools-mobile-landscape,
+.mobile-device-info,
+.color-tool-only,
 .mobile-menu {
   display: none;
 }
@@ -713,6 +719,7 @@ footer {
 @media (max-width: 1024px) {
   body {
     font-size: 14px;
+    line-height: 24px;
   }
   .footer-links a {
     font-size: 14px;
@@ -741,6 +748,7 @@ footer {
   .categories,
   .categories-5 {
     gap: 12px;
+    margin: 0 0 20px;
   }
   .categories-5 .category,
   .category {
@@ -748,10 +756,14 @@ footer {
   }
   .category span {
     font-size: 14px;
+    line-height: 14px;
   }
   .breadcrumbs {
     font-size: 14px;
     line-height: 16px;
+  }
+  main p {
+    margin: 0 0 20px;
   }
 }
 @media (max-width: 768px) {
@@ -768,6 +780,13 @@ footer {
     height: 254px;
     gap: 20px;
   }
+  header.slim {
+    background-image: url(./assets/images/header-bg-slim-mobile.png);
+    background-position: right top;
+    background-size: auto 61px;
+    height: 61px;
+    padding: 8px 24px;
+  }
   header .slogan {
     display: none;
   }
@@ -777,12 +796,10 @@ footer {
     line-height: 35px;
     max-width: 200px;
   }
-  header .search {
-    display: none;
-  }
   header.home .search {
     display: flex;
   }
+  header .search input,
   header.home .search input {
     width: 250px;
     height: 44px;
@@ -791,14 +808,31 @@ footer {
     font-weight: 400;
     padding: 0 20px;
   }
+  header .search button,
   header.home .search button {
     font-size: 14px;
     line-height: 17px;
     padding: 0 20px;
   }
+  header:not(.home) .search {
+    display: none;
+    background-color: #fff2de;
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    top: 79px;
+    padding: 15px;
+  }
+  header:not(.home) .search.shown {
+    display: flex;
+  }
   header a img {
     width: 52px;
     height: 52px;
+  }
+  header.slim a img {
+    width: 44px;
+    height: 44px;
   }
   .logo-menu {
     display: flex;
@@ -810,8 +844,26 @@ footer {
     gap: 20px;
     height: 21px;
   }
+  header.home .search-trigger {
+    display: none;
+  }
   .main-nav {
     display: none;
+    position: absolute;
+    top: 79px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+  }
+  .main-nav.shown {
+    display: flex !important;
+    z-index: 2;
+  }
+  .main-nav a {
+    font-size: 14px;
   }
   main {
     padding: 30px 0;
@@ -819,8 +871,113 @@ footer {
   .slick-list {
     max-width: 600px;
   }
+  .color-tool {
+    flex-direction: column-reverse;
+    gap: 16px;
+  }
+  .color-tool .tools {
+    flex-direction: row;
+    gap: 10px;
+  }
+  .color-tool .tool-group {
+    display: flex;
+    flex-direction: row;
+  }
+  .color-tool .tool-item {
+    width: 34px;
+    height: 34px;
+    padding: 10px;
+  }
+  .color-tool .tool-item:not(.rounded):first-child {
+    border-radius: 8px 0 0 8px;
+  }
+  .color-tool .tool-item:not(.rounded):last-child {
+    border-radius: 0 8px 8px 0;
+  }
+  .color-tool .tool-item.rounded {
+    border-radius: 8px;
+  }
+  .color-tool .palette {
+    display: flex;
+    gap: 10px;
+  }
+  .color-tool .palette .current-color {
+    width: 50px;
+    height: 50px;
+    border-radius: 9px;
+  }
+  .color-tool .palette .color-item {
+    width: 25px;
+    height: 25px;
+  }
+  .footer-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-container a {
+    font-size: 12px;
+    margin: 0 5px;
+  }
+  .pagination a {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    line-height: 30px;
+  }
+  .tippbox {
+    margin: 30px 0;
+    padding: 20px 30px;
+    background-position: right top;
+    background-size: 90px;
+  }
+  .product-block {
+    margin: 30px 0;
+    padding: 150px 30px 30px;
+    background-position: center top 20px;
+    text-align: center;
+  }
+  .product-block .subtitle {
+    font-size: 14px;
+  }
+  .product-block .title {
+    font-size: 22px;
+  }
+  .category-filter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .category-filter .filters span {
+    margin: 0 10px 0 0;
+  }
+  .teaser {
+    gap: 20px;
+  }
+  .teaser .title {
+    font-size: 16px;
+    line-height: 18px;
+  }
+  .teaser .images img {
+    max-width: 120px;
+  }
+  .teaser a {
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .detail-image .socials svg {
+    width: 26px;
+    height: 26px;
+  }
+  .detail-image .image a {
+    display: none;
+  }
   .detail-buttons {
-    margin: 32px 0;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  .detail-buttons a {
+    padding: 14px 20px;
   }
   .btn-blue,
   .btn-orange {
@@ -833,27 +990,85 @@ footer {
     height: 18px;
     top: 3px;
   }
-  .color-tool {
+  .slick-list {
+    max-width: 270px;
+  }
+  .slick-arrow {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+  }
+  header.slim .mobile-menu {
+    display: none;
+  }
+  .color-tool-only {
+    display: block;
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (orientation: portrait) {
+  .mobile-device-info {
+    display: block;
+    background: #e7f2f1;
+    border-radius: 20px;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    align-items: center;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0 0 25px;
+  }
+  .color-tool .palette .colors-list {
+    width: auto;
+    max-width: 277px;
+    border-radius: 9px;
+    gap: 0;
+    border: 1px solid #eee;
+    height: 52px;
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (orientation: landscape) {
+  .draw-page .color-tool .tools,
+  .draw-page .detail-buttons,
+  .draw-page header,
+  .draw-page footer {
+    display: none;
+  }
+  .draw-page main {
+    padding: 15px 0;
+  }
+  .draw-page .color-tool {
+    flex-direction: row-reverse;
+    align-items: flex-start;
+  }
+  .draw-page .color-tool .palette .colors-list {
+    border-radius: 9px;
+    gap: 0;
+    border: 1px solid #eee;
+    width: 52px;
+  }
+  .draw-page .color-tool .palette {
     flex-direction: column-reverse;
   }
-  .color-tool .tools {
-    flex-direction: row;
-  }
-  .color-tool .tool-group {
+  .draw-page .color-tool .tools.tools-mobile-landscape {
     display: flex;
-    flex-direction: row;
-  }
-  .color-tool .tool-item {
-    width: 34px;
-    height: 34px;
-    padding: 10px;
-  }
-  .footer-container {
-    flex-direction: column;
     gap: 10px;
+    margin: 0 0 10px;
   }
-  .footer-container a {
-    font-size: 12px;
-    margin: 0 5px;
+  .draw-page .color-tool .tools.tools-mobile-landscape .back-button,
+  .draw-page .color-tool .tools.tools-mobile-landscape .btn-orange,
+  .draw-page .color-tool .tools.tools-mobile-landscape .btn-blue {
+    padding: 0 15px;
+    line-height: 34px;
+  }
+  .draw-page .color-tool .tools.tools-mobile-landscape .btn-orange svg,
+  .draw-page .color-tool .tools.tools-mobile-landscape .btn-blue svg {
+    margin: 0;
+  }
+  .draw-page .color-tool .tools.tools-mobile-landscape .back-button svg {
+    position: relative;
+    top: 6px;
   }
 }
