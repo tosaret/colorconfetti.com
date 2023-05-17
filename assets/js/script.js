@@ -6,6 +6,12 @@ $(document).ready(function () {
   $('a.menu-trigger').on('click', function (e) {
     e.preventDefault();
     $('.main-nav').toggleClass('shown');
+    $(this).toggleClass('opened');
+  });
+  $('.tooltip-trigger').on('click', function (e) {
+    e.preventDefault();
+    $('.tooltiptext').toggleClass('shown');
+    copyText($('.tooltip-info').attr('data-text').trim());
   });
 
   $('.carousel').slick({
@@ -23,3 +29,10 @@ $(document).ready(function () {
     ],
   });
 });
+
+async function copyText(text) {
+  try {
+    const toCopy = text || location.href;
+    await navigator.clipboard.writeText(toCopy);
+  } catch (err) {}
+}
